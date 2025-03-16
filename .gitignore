@@ -1,7 +1,7 @@
 .env
 
 assets/*
-assets/firebase-sdk.json
+firebase-sdk.json
 
 compost.ini
 
