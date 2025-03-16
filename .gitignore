@@ -5,4 +5,8 @@ assets/firebase-sdk.json
 
 compost.ini
 
-/app/myenv/*
+myenv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
