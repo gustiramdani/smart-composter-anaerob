@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Real-time Monitoring Section -->
+    <section id="realtime-section" class="section">
+        <div class="dashboard-header">
+            <div class="container">
+                <h1 class="text-center mb-2">Smart Anaerob Composter</h1>
+                <h5 class="text-center mb-4">IoT Monitoring Dashboard</h5>
+                <div class="d-flex justify-content-center">
+                    <div class="status-indicator blink"></div>
+                    <span class="status-text">Live Monitoring</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <!-- Date and Time Display -->
+            <div class="text-center mb-4">
+                <div class="datetime-badge">
+                    <i class="bi bi-clock"></i> <span id="timestamp">Loading...</span>
+                </div>
+            </div>
+            
+            <!-- Sensor Cards -->
+            <div class="row g-4">
+                <!-- Temperature Card -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="sensor-card" id="temperature-card">
+                        <div class="card-header">
+                            Temperature
+                        </div>
+                        <div class="card-body">
+                            <div class="icon-container">
+                                <img src="https://img.icons8.com/?size=100&id=nzNfM58t7P5Z&format=png&color=000000" class="icon" alt="Temperature">
+                            </div>
+                            <div class="card-value">
+                                <span id="temperature">--</span>
+                                <span class="card-unit">°C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Humidity Card -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="sensor-card" id="humidity-card">
+                        <div class="card-header">
+                            Humidity
+                        </div>
+                        <div class="card-body">
+                            <div class="icon-container">
+                                <img src="https://img.icons8.com/?size=100&id=GCWz8AHDXItF&format=png&color=000000" class="icon" alt="Humidity">
+                            </div>
+                            <div class="card-value">
+                                <span id="humidity">--</span>
+                                <span class="card-unit">%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- pH Card -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="sensor-card" id="ph-card">
+                        <div class="card-header">
+                            pH Level
+                        </div>
+                        <div class="card-body">
+                            <div class="icon-container">
+                                <img src="https://img.icons8.com/?size=100&id=YJIB4UsTBd68&format=png&color=000000" class="icon" alt="pH">
+                            </div>
+                            <div class="card-value">
+                                <span id="ph">--</span>
+                                <span class="card-unit">pH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flow Rate Card -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="sensor-card" id="flow-rate-card">
+                        <div class="card-header">
+                            Flow Rate
+                        </div>
+                        <div class="card-body">
+                            <div class="icon-container">
+                                <img src="https://img.icons8.com/?size=100&id=108735&format=png&color=000000" class="icon" alt="Flow Rate">
+                            </div>
+                            <div class="card-value">
+                                <span id="flow-rate">--</span>
+                                <span class="card-unit">L/min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Button -->
+            <div class="text-center mt-5">
+                <button class="scroll-btn" onclick="scrollToHistorical()">
+                    View Historical Data
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Historical Data Section -->
+    <section id="historical-section" class="section">
+        <div class="container">
+            <h2 class="text-center mb-4">Historical Data</h2>
+            <p class="text-center text-muted mb-4">View and analyze previous measurements from Smart Anaerob Composter system</p>
+            
+            <div class="table-container">
+                <table class="table table-hover" id="historical-data-table">
+                    <thead class="table-header">
+                        <tr>
+                            <th>Temperature (°C)</th>
+                            <th>Humidity (%)</th>
+                            <th>pH</th>
+                            <th>Flow Rate (L/min)</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Historical data rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Back to Top Button -->
+            <div class="text-center mt-4">
+                <button class="scroll-btn" onclick="scrollToRealtime()">
+                    Back to Live Monitoring
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
