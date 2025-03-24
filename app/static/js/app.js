@@ -94,3 +94,30 @@ function scrollToRealtime() {
         behavior: 'smooth'
     });
 }
+
+// Function to export the table data to a CSV file
+function exportToCSV() {
+    const table = document.getElementById('historical-data-table');
+    const rows = table.querySelectorAll('tr');
+    
+    let csvContent = '';
+    
+    // Loop through each row of the table and build CSV content
+    rows.forEach(row => {
+        const columns = row.querySelectorAll('th, td');
+        let rowData = [];
+        columns.forEach(column => {
+            rowData.push(column.innerText);
+        });
+        csvContent += rowData.join(',') + '\n';
+    });
+    
+    // Create a temporary link element for downloading the CSV file
+    const link = document.createElement('a');
+    link.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
+    link.target = '_blank';
+    link.download = 'historical_data.csv';
+    
+    // Trigger the download
+    link.click();
+}

@@ -42,5 +42,5 @@ def sync_data_from_fb_to_postgres():
         return response.badRequest([], str(e))
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(sync_data_from_fb_to_postgres, 'interval', minutes=30)
+scheduler.add_job(sync_data_from_fb_to_postgres, 'interval', minutes=10)
 scheduler.start()

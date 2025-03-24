@@ -162,3 +162,18 @@ body {
     50% { opacity: 0.5; }
     100% { opacity: 1; }
 }
+
+.export-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    justify-content: flex-end;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.export-btn:hover {
+    background-color: #0056b3;
+}
