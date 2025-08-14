@@ -66,7 +66,7 @@ Model Regresi (Mengestimasi debit air):
 
 
 🧑‍💻 Kontributor
-Gusti Ramdani - github.com/gustiramdani 
+Gusti Ramdani - github.com/gustiramdani (2025)
 
 🙏 Ucapan Terima Kasih
 Proyek ini tidak akan terwujud tanpa bimbingan dan dukungan dari:
