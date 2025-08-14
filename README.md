@@ -1,4 +1,4 @@
-******Smart Anaerob Composter - Monitoring IoT & Prediksi Machine Learning******
+## Smart Anaerob Composter - Monitoring IoT & Prediksi Machine Learning
 
 Proyek ini adalah sistem Internet of Things (IoT) untuk memantau dan mengoptimalkan proses pengomposan pada komposter anaerob. Sistem ini dilengkapi dengan kemampuan prediksi berbasis Machine Learning untuk otomatisasi penyiraman.
 
